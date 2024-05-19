@@ -119,13 +119,7 @@ export class HEREv2 implements IGeocoder {
       limit: this.options.maxResults
     });
 
-    if (!params.at && !params.in) {
-      throw Error(
-        'at / in parameters not found. Please define coordinates (at=latitude,longitude) or other (in) in your geocodingQueryParams.'
-      );
-    }
-
-    this.getJSON(this.options.serviceUrl + '/discover', params, cb, context);
+    this.getJSON(this.options.serviceUrl + '/geocode', params, cb, context);
   }
 
   reverse(location: L.LatLngLiteral, scale: number, cb: GeocodingCallback, context?: any): void {

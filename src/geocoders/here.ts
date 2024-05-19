@@ -131,6 +131,10 @@ export class HEREv2 implements IGeocoder {
     this.getJSON(this.options.serviceUrl + '/revgeocode', params, cb, context);
   }
 
+  suggest(query: string, cb: GeocodingCallback, context?: any): void {
+    return this.geocode(query, cb, context);
+  }
+
   getJSON(url: string, params: any, cb: GeocodingCallback, context?: any) {
     getJSON(url, params, data => {
       const results: GeocodingResult[] = [];
